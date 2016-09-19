@@ -1,29 +1,33 @@
 import java.util.*;
 
 public class Ch18Ex10 {
-
-	public static void main(String[] args) {
+	
+	public static int length = 0;
+	
+	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter a string and a character: ");
 		String word = input.next();
-		String letterInput = input.next();
-		char letter = letterInput.charAt(0);
-		
-		int number = count(word, (char)letter);
-		System.out.println("The letter " + letter + " occurs " + number + " times in the word " + word + ".");
+		char letter = input.next().charAt(0);
+		length = word.length();
+		int result = count(word, letter);
+		System.out.println("The letter " + letter + " is in the string \"" + word + "\" " + result + " times.");
 	}
-
+	
+	//public static int length;
+	public static int count = 0;
+	
 	public static int count(String str, char a){
-		String s = str;
-		char ch = a;
-		int counter = 0;
-		for( int i=0; i<s.length(); i++ ) {
-		    if( s.charAt(i) == a ) {
-		        counter++;
-		    }     
+		
+		if ( (length - 1) < 0 ) {
+			return count;
 		}
-		return counter;
-	 }
-	
-	
+		else if ( str.charAt( length - 1) == a ) {
+			count++;
+		}
+		length--;
+		return count(str, a);
+	}
 }
+
+
