@@ -14,7 +14,6 @@ public class Ch18Ex10 {
 		System.out.println("The letter " + letter + " is in the string \"" + word + "\" " + result + " times.");
 	}
 	
-	//public static int length;
 	public static int count = 0;
 	
 	public static int count(String str, char a){
