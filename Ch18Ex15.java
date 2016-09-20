@@ -1,34 +1,37 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Ch18Ex15 {
-
-	public static void main(String[] args) {
+	
+	public static int length = 0;
+	public static String word;
+	
+	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter a string and a character: ");
-		String word = input.next();
-		String letterInput = input.next();
-		char letter = letterInput.charAt(0);
-		
-		int number = count(word, (char)letter);
-		System.out.println("The letter " + letter + " occurs " + number + " times in the word " + word + ".");
+		word = input.next();
+		char letter = input.next().charAt(0);
+		int result = count(word, letter, high());
+		System.out.println("The letter " + letter + " is in the string \"" + word + "\" " + result + " times.");
 	}
-
-	public static int count(String str, char a){
-		String s = str;
-		char ch = a;
-		int counter = 0;
-		for( int i=0; i<s.length(); i++ ) {
-		    if( s.charAt(i) == a ) {
-		        counter++;
-		    }     
-		}
-		return counter;
-	 }
 	
+	public static int count = 0;
+	
+	public static int high() {
+		int highestIndex = word.length() - 1;
+		return highestIndex;
+	}
 	
 	public static int count(String str, char a, int high){
 		
+		if ( (high) < 0 ) {
+			return count;
+		}
+		else if ( str.charAt( high ) == a ) {
+			count++;
+		}
+		high--;
+		return count(str, a, high);
 	}
-	
-	
 }
+
+
